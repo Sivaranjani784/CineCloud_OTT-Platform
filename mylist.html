@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My List - OTT Platform</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" style="background-color: var(--darker-bg);">
+        <div class="container navbar-content">
+            <div class="nav-left flex items-center gap-2">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-cloud"></i> Cine<span style="color: white;">Cloud</span>
+                </a>
+                <ul class="nav-links desktop-only">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="mylist.html" class="active">My List</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-right">
+                <div id="auth-buttons">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 100px; min-height: 80vh;">
+        <h1 style="margin-bottom: 2rem;">My Wishlist</h1>
+
+        <div id="wishlist-grid" class="flex flex-wrap gap-2"
+            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+            <!-- Wishlist items injected here -->
+            <p id="empty-msg">Your list is empty.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 OTT Platform. All rights reserved.</p>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Login Modal (Needed if session expires or for consistent auth UI) -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content auth-container" style="padding: 0; background: transparent; min-height: auto;">
+            <div class="auth-box">
+                <span class="close-modal" onclick="closeModal('login-modal')">&times;</span>
+                <h2 class="auth-title">Sign In</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <input type="email" id="login-email" class="form-input" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" class="form-input" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="confirm-title">Are you sure?</h2>
+            <p id="confirm-message" style="margin: 1rem 0;">Confirm action</p>
+            <div class="flex justify-center gap-2">
+                <button class="btn btn-primary" id="confirm-yes">Yes</button>
+                <button class="btn btn-secondary" onclick="closeModal('confirm-modal')">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/background-animation.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
